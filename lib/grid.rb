@@ -40,9 +40,21 @@ class Grid
   end
 
   def assign_cell_positions
+    assign_cols
+    assign_rows
+  end
+
+  def assign_cols
     cell_cols = cells.each_slice(9).to_a
     cols = @columns.each
     cell_cols.each { |column| cols.next.cells=(column) }
   end
 
+  def assign_rows
+    cell_rows = cells.each_slice(9).to_a.transpose
+    rows = @rows.each
+    cell_rows.each { |row| rows.next.cells=(row) }
+  end
+
+  
 end

@@ -28,6 +28,10 @@ describe Grid do
     expect(grid.rows[5].cells[5].name).to eq 'F6'
   end
 
+  it 'distribute cells into boxes' do
+    expect(grid.boxes[5].cells[5].name).to eq 'E5'
+  end
+
   xit 'reads cell contents' do
   end
 
