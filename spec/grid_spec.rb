@@ -12,14 +12,11 @@ describe Grid do
     expect(grid.rows.count).to eq 9
   end
 
-  it 'each row has nine elements' do
-    expect(grid.rows[0].count).to eq 9
+  it 'creates nine columns' do
+    expect(grid.columns.count).to eq 9
   end
 
-  xit 'creates columns' do
-  end
-
-  xit 'creates rows' do
+  xit 'creates nine boxes' do
   end
 
   xit 'reads cell contents' do
