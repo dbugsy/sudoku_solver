@@ -4,11 +4,7 @@ describe Grid do
   
   let(:grid){Grid.new}
 
-  it 'contains an array with 81 elements' do
-    expect(grid.cells.count).to eq 81
-  end
-
-  it 'creates nine rows' do
+  it 'contains an array with nine rows' do
     expect(grid.rows.count).to eq 9
   end
 
