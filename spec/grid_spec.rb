@@ -8,7 +8,7 @@ describe Grid do
     expect(grid.cells.count).to eq 81
   end
 
-  xit 'creates boxes, columns and rows' do
+  it 'creates boxes, columns and rows' do
   end
 
   xit 'reads cell contents' do
