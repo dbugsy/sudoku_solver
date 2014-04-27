@@ -8,7 +8,7 @@ describe Grid do
     expect(grid.rows.count).to eq 9
   end
 
-  it 'creates nine columns' do
+  it 'creates an array with nine columns' do
     expect(grid.columns.count).to eq 9
   end
 
