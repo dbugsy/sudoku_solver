@@ -21,15 +21,15 @@ describe Grid do
   end
 
   it 'distribute cells into columns' do
-    expect(grid.columns[2].cells[2].name).to eq 'C3'
+    expect(grid.columns[2][2].name).to eq 'C3'
   end
 
   it 'distribute cells into rows' do
-    expect(grid.rows[5].cells[5].name).to eq 'F6'
+    expect(grid.rows[5][5].name).to eq 'F6'
   end
 
   it 'distribute cells into boxes' do
-    expect(grid.boxes[5].cells[5].name).to eq 'E5'
+    expect(grid.boxes[4][4].name).to eq 'E5'
   end
 
   xit 'reads cell contents' do
