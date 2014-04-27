@@ -32,10 +32,11 @@ describe Grid do
     expect(grid.boxes[4][4].name).to eq 'E5'
   end
 
-  xit 'reads cell contents' do
+  xit 'assigns row neighbours to cell' do
+
   end
 
-  xit 'write to cell' do
+  xit 'reads cell contents' do
   end
 
   xit 'solves the puzzle' do

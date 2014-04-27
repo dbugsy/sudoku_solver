@@ -2,8 +2,6 @@ require 'cell'
 
 describe Cell do
   
-  xit 'can have a value' do
-  end
 
   xit 'can have a list of possible values' do
   end

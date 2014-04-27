@@ -37,8 +37,4 @@ class Grid
     array_segments.each{|segment| @boxes[box_enum.next].concat(segment)}
     print boxes.inspect
   end
-
-  def assign_boxes
-    
-  end
 end
