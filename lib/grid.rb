@@ -11,6 +11,7 @@ class Grid
     create_rows
     create_columns
     create_boxes
+    create_cells
   end
 
   def create_rows
@@ -29,6 +30,19 @@ class Grid
     @boxes = []
     enum = (1..9).each
     9.times {@boxes << Box.new(enum.next)}
+  end
+
+  def create_cells
+    @cells = []
+    cell_names = ('A1'..'I9').to_a.reject{|ele| ele.include?('0')}.each
+    81.times {@cells << Cell.new(cell_names.next)}
+    assign_cell_positions
+  end
+
+  def assign_cell_positions
+    cell_cols = cells.each_slice(9).to_a
+    cols = @columns.each
+    cell_cols.each { |column| cols.next.cells=(column) }
   end
 
 end

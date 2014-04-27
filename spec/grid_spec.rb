@@ -16,6 +16,18 @@ describe Grid do
     expect(grid.boxes.count).to eq 9
   end
 
+  it 'creates cells with a name' do
+    expect(grid.cells[9].name).to eq 'B1'
+  end
+
+  it 'distribute cells into columns' do
+    expect(grid.columns[2].cells[2].name).to eq 'C3'
+  end
+
+  it 'distribute cells into rows' do
+    expect(grid.rows[5].cells[5].name).to eq 'F6'
+  end
+
   xit 'reads cell contents' do
   end
 
