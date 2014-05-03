@@ -25,15 +25,36 @@ class Grid
 
   def solve!
     start_point = @cells.map {|cell| cell.value}
-    print "start  point = #{start_point}\n\n"
-    cells.each {|cell| cell.solve!(self) }
+    cells.each {|cell| cell.solve! }
     end_point = @cells.map {|cell| cell.value}
-    print "end point = #{end_point}\n\n"
-    if end_point != start_point && !self.solved?
-      self.solve!
+    if end_point != start_point && !solved?
+      solve!
+    elsif end_point == start_point && !solved?
+      try_harder
+    else solved?
+      @solution = @cells.map(&:value).join
     end
-    @solution = @cells.map {|cell| cell.value}.join
+    @solution
   end
 
-  
+  def try_harder
+    blank_cell = @cells.select {|cell| cell.value == 0}.first
+    blank_cell.missing_values.each do |value|
+      blank_cell.value=(value)
+      start_point = @cells.map {|cell| cell.value}.join
+      newboard = Grid.new(start_point)
+      newboard.solve!
+      if newboard.solved?
+        rebuild!(newboard.cells.map(&:value).join)
+        return
+      end
+    end
+  end
+
+  def rebuild!(string)
+    @cells.clear
+    @puzzle = string.chars
+    create_grid
+    assign_cell_values
+  end
 end

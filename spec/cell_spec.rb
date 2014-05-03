@@ -8,8 +8,8 @@ describe Cell do
   let(:a1){grid.cells[1]}
 
   it 'can have a list of possible values' do
-    expect(a0.missing_values(grid)).to eq [6]
-    expect(i8.missing_values(grid)).to eq [1,8,9]
+    expect(a0.missing_values).to eq [6]
+    expect(i8.missing_values).to eq [1,8,9]
   end
 
   it 'knows if it is solved' do
@@ -18,11 +18,9 @@ describe Cell do
   end
 
   it 'can solve itself if it only has 1 missing value' do
-    a0.solve!(grid)
+    a0.solve!
     expect(a0.solved?).to be_true
   end
-
-  
 
 
 end

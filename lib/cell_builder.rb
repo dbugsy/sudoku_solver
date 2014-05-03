@@ -10,7 +10,7 @@ module Cell_Builder
   def create_cells
     @cells = []
     cell_names = ('A0'..'I8').to_a.reject{|ele| ele.include?('9')}.each
-    81.times {@cells << Cell.new(cell_names.next)}
+    81.times {@cells << Cell.new(cell_names.next, self)}
     @cells = @cells.each_slice(9).to_a.transpose.flatten
   end
 

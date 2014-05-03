@@ -4,30 +4,31 @@ class Cell
 
   attr_accessor :name, :containers, :value
 
-  def initialize(name)
+  def initialize(name, grid=nil)
     @name = name
     @containers = {}
+    @grid = grid
   end
 
   def solved?
     @value > 0
   end
 
-  def solve!(grid)
+  def solve!
     if !solved?
-    @value = missing_values(grid)[0] if missing_values(grid).count == 1
+    @value = missing_values[0] if missing_values.count == 1
     end
   end
 
-  def missing_values(grid)
-    row_values = solved_values(grid, :row)
-    column_values = solved_values(grid, :column)
-    box_values = solved_values(grid, :box)
+  def missing_values
+    row_values = solved_values(:row)
+    column_values = solved_values(:column)
+    box_values = solved_values(:box)
     ALL_CELL_VALUES - row_values - column_values - box_values
   end
 
-  def solved_values(grid, container)
-    grid.cells.select do |cell|
+  def solved_values(container)
+      @grid.cells.select do |cell|
       cell.containers[container] == @containers[container]
       end.map{|cell| cell.value }
   end
