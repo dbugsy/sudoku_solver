@@ -4,6 +4,8 @@ describe Grid do
 
   let(:grid){Grid.new('015003002000100906270068430490002017501040380003905000900081040860070025037204600')}
   let(:solvedgrid){Grid.new('615493872348127956279568431496832517521746389783915264952681743864379125137254698')}
+  let(:hardgrid){Grid.new('800000000003600000070090200050007000000045700000100030001000068008500010090000400')}
+  let(:insanegrid){Grid.new('000002040000000000000000600950000800000100000000000000000700000003000000000000000')}
 
   context 'Cell Builder' do
 
@@ -49,18 +51,22 @@ describe Grid do
         grid.solve!
         expect(grid.cells[0].solved?).to be_true
         expect(grid.solved?).to be_true
-        expect(grid.solution).to eq('615493872348127956279568431496832517521746389783915264952681743864379125137254698')
+        expect(grid.solution).to eq '615493872348127956279568431496832517521746389783915264952681743864379125137254698'
     end
 
   end
 
   context 'solving a hard puzzle' do
-    let(:hardgrid){Grid.new'800000000003600000070090200050007000000045700000100030001000068008500010090000400'}
 
+    
     it 'can solve a hard sudoku' do
       hardgrid.solve!
       expect(hardgrid.solved?).to be_true
     end
 
-  end  
+    it 'can solve an extremely hard sudoku' do
+      insanegrid.solve!
+      expect(insanegrid.solved?).to be_true
+    end  
+  end
 end
