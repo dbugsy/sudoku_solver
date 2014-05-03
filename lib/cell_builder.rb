@@ -25,7 +25,7 @@ module Cell_Builder
     columns = []
     cell_cols = cells.each_slice(9).to_a.transpose
     cell_cols.each { |column| columns << column }
-    assign_container_values(columns, :columns)
+    assign_container_values(columns, :column)
   end
 
   def assign_boxes
