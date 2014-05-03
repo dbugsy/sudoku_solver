@@ -2,10 +2,11 @@ class Cell
   
   CELL_VALUES = (1..9).to_a
 
-  attr_accessor :name, :value, :row_values, :column_values, :box_values
+  attr_accessor :name, :containers, :value
 
   def initialize(name)
     @name = name
+    @containers = {}
   end
 
 
