@@ -30,14 +30,14 @@ class Grid
     if end_point != start_point && !solved?
       solve!
     elsif end_point == start_point && !solved?
-      try_harder
+      solve_hard_sudoku
     else solved?
       @solution = @cells.map(&:value).join
     end
     @solution
   end
 
-  def try_harder
+  def solve_hard_sudoku
     blank_cell = @cells.select {|cell| cell.value == 0}.first
     blank_cell.missing_values.each do |value|
       blank_cell.value=(value)
