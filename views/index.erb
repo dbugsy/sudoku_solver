@@ -4,12 +4,23 @@
     <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+  <h1>such soduki!!!</h1>
     <div id="sudoku">
-      <% 9.times do |row| %>
+      <% 3.times do |row| %>
         <div class="row">
-          <% 9.times do |cell| %>
-            <div class="cell">
-              <input type="text">
+          <% 3.times do |box| %>
+            <div class="box">
+              <% 3.times do |cell_row| %>
+                <div class="cell_row">
+                  <% 3.times do |cell| %>
+                    <div class="cell">
+                        <% cell_index = row * 27 + box * 3 + cell_row * 9 + cell %>
+                        <% cell_value = @current_solution[cell_index] %>
+                        <input type="text" maxlength="1" autocomplete="off" value="<%= cell_value %>" >
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>

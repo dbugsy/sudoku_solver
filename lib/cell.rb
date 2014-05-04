@@ -2,10 +2,9 @@ class Cell
   
   ALL_CELL_VALUES = (1..9).to_a
 
-  attr_accessor :name, :containers, :value
+  attr_accessor :containers, :value
 
-  def initialize(name, grid=nil)
-    @name = name
+  def initialize(grid=nil)
     @containers = {}
     @grid = grid
   end

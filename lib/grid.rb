@@ -57,4 +57,24 @@ class Grid
     create_grid
     assign_cell_values
   end
+
+  def puzzle!
+    add_zeros(array_of_(:box))
+    add_zeros(array_of_(:row))
+    add_zeros(array_of_(:column))
+    @cells.map {|cell| cell.value}.join
+  end
+
+  def array_of_(container)
+  containers = Array.new(9) { [] }
+  @cells.each { |cell| containers[cell.containers[container]] << cell }
+  containers
+  end
+
+  def add_zeros(array_of_containers)
+    array_of_containers.each do |container| 
+      container[rand(9)].value= "0" if container.map {|cell| cell.value}.all? {|value| value.to_i > 0}
+    end
+  end
+
 end

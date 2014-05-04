@@ -1,0 +1,42 @@
+body {
+  margin: 0px;
+  text-align: center;
+  font-family: 'Comic Sans', 'Comic Sans', Chalkboard, Helvetica, Arial, sans-serif;
+  background-color: LightCyan ;
+}
+
+div.box {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  display: inline-block;
+  border: solid;
+  border-width: 1px;
+  border-color: MidnightBlue;
+}
+
+div.cell {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  display: inline-block;
+  border: solid;
+  border-width: 1px;
+  border-color: MidnightBlue;
+}
+
+.cell input {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  border-width: 0px ;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  background-color: PaleTurquoise ;
+}
+
+#sudoku {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  font-size: 0;
+  text-align: center;
+  background-color: LightCyan  ;
+}
