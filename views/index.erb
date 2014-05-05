@@ -1,62 +1,43 @@
-<html>
-  <head>
-    <title>sudoku</title>
-    <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-
-      <div id="header">
-      <h1>SUDOKU IS SERIOUS</h1>
-      </div>
-
-      <div id="stage">
-
-      <div id="difficulty_buttons">
-        <div id="button1">
-        <form action ="/easy" method="post">
-          <button>easy</button>
-        </form>
-        </div>
-        <div id="button2">
-        <form action ="/medium" method="post">
-          <button>medium</button>
-        </form>
-        </div>
-        <div id="button3">
-        <form action ="/hard" method="post">
-          <button>hard</button>
-        </form>
-        </div>
-      </div>
-
-      <div id="sudoku">
-
-      <form action="/" method="post">
-      <% 3.times do |row| %>
-        <div class="row">
-          <% 3.times do |box| %>
-            <div class="box">
-              <% 3.times do |cell_row| %>
-                <div class="cell_row">
-                  <% 3.times do |cell| %>
-                    <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
+<div id="difficulty_buttons">
+  <div id="button1">
+  <form action ="/easy" method="post">
+    <button>easy</button>
+  </form>
+  </div>
+  <div id="button2">
+  <form action ="/medium" method="post">
+    <button>medium</button>
+  </form>
+  </div>
+  <div id="button3">
+  <form action ="/hard" method="post">
+    <button>hard</button>
+  </form>
+  </div>
+</div>
+<div id="sudoku">
+  <form action="/" method="post">
+  <% 3.times do |row| %>
+    <div class="row">
+      <% 3.times do |box| %>
+      <div class="box">
+        <% 3.times do |cell_row| %>
+        <div class="cell_row">
+          <% 3.times do |cell| %>
+          <%= partial :cell, :locals=>{:cell_index => row*27+box*3+cell_row*9+cell} %>
           <% end %>
         </div>
-      <% end %>
-      <div id="check">
-      <button>check answers</button>
+        <% end %>
       </div>
-      </form>
-      </div>
-
-
-
-    <div id="flash">
-      <%= flash[:notice] %>
+    <% end %>
     </div>
-  </body>
-</html>
+    <% end %>
+    <div id="check">
+    <button>check answers</button>
+    </div>
+  </form>
+</div>
+<div id="flash">
+  <%= flash[:notice] %>
+</div>
+    
