@@ -4,9 +4,33 @@
     <link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>what are this?</h1>
 
-    <div id="sudoku">
+      <div id="header">
+      <h1>SUDOKU IS SERIOUS</h1>
+      </div>
+
+      <div id="stage">
+
+      <div id="difficulty_buttons">
+        <div id="button1">
+        <form action ="/easy" method="post">
+          <button>easy</button>
+        </form>
+        </div>
+        <div id="button2">
+        <form action ="/medium" method="post">
+          <button>medium</button>
+        </form>
+        </div>
+        <div id="button3">
+        <form action ="/hard" method="post">
+          <button>hard</button>
+        </form>
+        </div>
+      </div>
+
+      <div id="sudoku">
+
       <form action="/" method="post">
       <% 3.times do |row| %>
         <div class="row">
@@ -23,9 +47,14 @@
           <% end %>
         </div>
       <% end %>
+      <div id="check">
       <button>check answers</button>
+      </div>
       </form>
-    </div>
+      </div>
+
+
+
     <div id="flash">
       <%= flash[:notice] %>
     </div>

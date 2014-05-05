@@ -1,17 +1,32 @@
 body {
   margin: 0px;
   text-align: center;
-  font-family: 'Comic Sans', 'Comic Sans', Chalkboard, Helvetica, Arial, sans-serif;
-  background-color: LightCyan ;
+  background-color: white ;
+  background-image:url('../images/geometric-background-3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#stage {
+  height: 100% ;
+  
 }
 
 div.box {
   margin: 0px;
   padding: 0px 0px 0px 0px;
   display: inline-block;
-  border: solid;
-  border-width: 1px;
-  border-color: MidnightBlue;
+  outline: solid;
+  outline-width-width: 1px;
+  outline-color: MidnightBlue;
+}
+
+#header {
+  outline: solid;
+  margin: 0px;
+  border-bottom-width: 0px;
+  opacity: 0% ;
+  background-color: white ;
 }
 
 div.cell {
@@ -23,7 +38,12 @@ div.cell {
   border-color: MidnightBlue;
 }
 
+#check {
+  margin: 10px;
+}
+
 .cell input {
+  size: cover;
   margin: 0px;
   padding: 0px 0px 0px 0px;
   border-width: 0px ;
@@ -33,11 +53,9 @@ div.cell {
 }
 
 #sudoku {
-  margin: 0px;
   padding: 0px 0px 0px 0px;
   font-size: 0;
   text-align: center;
-  background-color: LightCyan  ;
 }
 
 .incorrect {
@@ -45,5 +63,13 @@ div.cell {
 }
 
 .value-provided {
-  background-color: #DDD;
+  background-color: LightGrey;
+}
+
+#difficulty-buttons {
+}
+#button1, #button2, #button3 {
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
+  display: inline-block;
 }
