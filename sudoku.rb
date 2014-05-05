@@ -1,11 +1,13 @@
 require 'sinatra'
 require 'sinatra/partial'
+require 'rack-flash'
 require_relative './lib/grid'
 require_relative './lib/cell'
 
 enable :sessions
-configure(:development) { set :session_secret, "something" }
+set :session_secret, "something"
 set :partial_template_engine, :erb
+use Rack::Flash
 
 get '/' do
   prepare_to_check_solution
@@ -38,6 +40,9 @@ end
 
 def prepare_to_check_solution
   @check_solution = session[:check_solution]
+  if @check_solution
+    flash[:notice] = "Incorrect values are highlighted in yellow"
+  end
   session[:check_solution] = nil
 end
 
