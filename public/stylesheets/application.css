@@ -30,7 +30,6 @@ div.cell {
   text-align: center;
   width: 30px;
   height: 30px;
-  background-color: PaleTurquoise ;
 }
 
 #sudoku {
@@ -39,4 +38,12 @@ div.cell {
   font-size: 0;
   text-align: center;
   background-color: LightCyan  ;
+}
+
+.incorrect {
+  background-color: yellow;
+}
+
+.value-provided {
+  background-color: #DDD;
 }
