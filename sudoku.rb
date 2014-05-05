@@ -1,9 +1,11 @@
 require 'sinatra'
+require 'sinatra/partial'
 require_relative './lib/grid'
 require_relative './lib/cell'
 
 enable :sessions
 configure(:development) { set :session_secret, "something" }
+set :partial_template_engine, :erb
 
 get '/' do
   prepare_to_check_solution
