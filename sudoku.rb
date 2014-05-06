@@ -5,15 +5,24 @@ require_relative './lib/grid'
 require_relative './lib/cell'
 
 enable :sessions
-set :session_secret, "something"
+set :session_secret, "secret code"
 set :partial_template_engine, :erb
 use Rack::Flash
 
 get '/' do
-  prepare_to_check_solution
-  generate_new_puzzle unless @check_solution
-  set_session_variables
-  erb :index
+  new_game
+end
+
+post '/easy' do
+  new_game(20)
+end
+
+post '/medium' do
+  new_game(40)
+end
+
+post '/hard' do
+  new_game(60)
 end
 
 post '/' do
@@ -23,18 +32,25 @@ post '/' do
   redirect to("/")
 end
 
+def new_game(level=40)
+  prepare_to_check_solution
+  generate_new_puzzle(level) unless @check_solution
+  set_session_variables
+  erb :index
+end
+
 def set_session_variables
   @current_game = session[:current_game] 
   @solution = session[:solution]
   @puzzle = session[:puzzle]
 end
 
-def generate_new_puzzle
+def generate_new_puzzle(level=40)
   sudoku = Grid.new(seed.join)
   sudoku.solve!
   @tagline = "new puzzle!"
   session[:solution] = sudoku.cells.map(&:value)
-  session[:puzzle] = puzzle(sudoku)
+  session[:puzzle] = puzzle(sudoku, level)
   session[:current_game] = session[:puzzle]
 end
 
@@ -50,7 +66,7 @@ def seed
   (1..9).to_a.shuffle + Array.new(81-9, 0)
 end
 
-def puzzle(sudoku, level=20)
+def puzzle(sudoku, level)
   puzzle_array = sudoku.puzzle!.chars
   add_zeros(puzzle_array, level)
 end

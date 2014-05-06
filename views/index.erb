@@ -1,3 +1,4 @@
+
 <div id="difficulty_buttons">
   <div id="button1">
   <form action ="/easy" method="post">
@@ -15,7 +16,11 @@
   </form>
   </div>
 </div>
+<div id="flash">
+      <%= flash[:notice] %>
+    </div>
 <div id="sudoku">
+
   <form action="/" method="post">
   <% 3.times do |row| %>
     <div class="row">
@@ -32,12 +37,19 @@
     <% end %>
     </div>
     <% end %>
-    <div id="check">
-    <button>check answers</button>
-    </div>
-  </form>
+    
+    <div id='solution_buttons'> action='post'
+      <div id="check">
+      <button>check answers</button>
+      </div>
+      <div id="solve">
+      <form action ="/solution" method="post">
+        <button>complete solution</button>
+      </div>
+      </form>
 </div>
-<div id="flash">
-  <%= flash[:notice] %>
-</div>
+
+
+
+
     

@@ -3,4 +3,5 @@ gem 'sinatra'
 gem 'shotgun'
 gem 'sinatra-partial'
 gem 'rack-flash3'
+gem 'unicorn'
 
